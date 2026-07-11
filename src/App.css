@@ -10,6 +10,7 @@
   --btn-border: #2d3436;
   --btn-hover-bg: #2d3436;
   --btn-hover-text: #ffffff;
+  --custom-cursor: url('/Logo.png'), auto;
 }
 
 /* Dark Theme Palette adjustments based on your cyan logo shades */
@@ -25,6 +26,7 @@
   --btn-border: #e3e9eb;
   --btn-hover-bg: #e3e9eb;
   --btn-hover-text: #12181a;
+  --custom-cursor: url('/Dark-Logo.png'), auto;
 }
 
 /* Apply variables to document container layer dynamically */
@@ -257,4 +259,19 @@ body {
   font-size: 0.85rem;
   color: var(--text-muted);
   border-top: 1px solid var(--border-color);
+}
+
+/* Apply custom logo cursor upon text hovering */
+.hero-bio,
+.project-card p,
+.outlet-card p {
+  cursor: var(--custom-cursor);
+  /* Smooth transition effect to prevent jarring element pop-ins */
+  transition: transform 0.2s ease;
+}
+
+/* Optional: Add a subtle artistic interactive swell when hovering */
+.creative-accent .hero-bio:hover,
+.creative-accent .project-card:hover p {
+  color: var(--text-main);
 }
