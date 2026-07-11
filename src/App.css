@@ -29,17 +29,6 @@
   --custom-cursor: url('/Dark-Logo.png'), auto;
 }
 
-/* Apply variables to document container layer dynamically */
-.portfolio-container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem;
-  min-height: 100vh;
-  background-color: var(--bg-primary);
-  color: var(--text-main);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
 /* Ensure underlying body element tracks dark space perfectly */
 body {
   margin: 0;
@@ -49,12 +38,24 @@ body {
   transition: background-color 0.3s ease;
 }
 
+/* Apply variables to document container layer dynamically */
+.portfolio-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem; /* Reduced mobile padding space */
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 /* Navbar Flex Setup */
 .navbar {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column; /* Stacks layout elements elegantly on small viewports */
+  gap: 1.25rem;
   align-items: center;
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -65,7 +66,7 @@ body {
 }
 
 .site-logo {
-  height: 38px;
+  height: 34px;
   width: auto;
 }
 
@@ -73,58 +74,74 @@ body {
   font-weight: 600;
   font-size: 1.1rem;
   letter-spacing: -0.5px;
+  white-space: nowrap;
 }
 
 .nav-controls {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap; /* Prevents overflow if translations push strings long */
+  gap: 0.75rem;
+  width: 100%;
 }
 
-/* Universal Button Styling rule bindings */
-.art-toggle-btn, .theme-toggle-btn {
+/* Universal Button & Selector Styling */
+.art-toggle-btn, .theme-toggle-btn, .lang-select {
   background: transparent;
   border: 1px solid var(--btn-border);
   color: var(--text-main);
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.85rem;
   border-radius: 20px;
   cursor: pointer;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   transition: all 0.2s ease;
+  outline: none;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .theme-toggle-btn {
-  padding: 0.5rem 0.75rem;
+  width: 36px;
+  padding: 0;
 }
 
-.art-toggle-btn:hover, .theme-toggle-btn:hover {
+.lang-select option {
+  background-color: var(--card-bg);
+  color: var(--text-main);
+}
+
+.art-toggle-btn:hover, .theme-toggle-btn:hover, .lang-select:hover {
   background: var(--btn-hover-bg);
   color: var(--btn-hover-text);
 }
 
 /* Hero Elements styling map handles */
 .hero-section {
-  padding: 5rem 0;
+  padding: 3rem 0;
 }
 
 .badge-intro {
   color: var(--accent-cyan);
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 1px;
+  margin-bottom: 0.5rem;
 }
 
 .hero-section h1 {
-  font-size: 2.5rem;
-  line-height: 1.2;
-  letter-spacing: -1px;
+  font-size: 1.85rem; /* Responsive sizing base for phone devices */
+  line-height: 1.3;
+  letter-spacing: -0.5px;
   max-width: 800px;
-  margin: 0.5rem 0 1.5rem 0;
+  margin: 0.5rem 0 1.25rem 0;
 }
 
 .hero-bio {
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   color: var(--text-muted);
   line-height: 1.6;
   max-width: 650px;
@@ -132,7 +149,8 @@ body {
 
 .social-links {
   display: flex;
-  gap: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1.25rem;
   margin-top: 2rem;
 }
 
@@ -143,6 +161,7 @@ body {
   border-bottom: 2px solid var(--accent-pink);
   padding-bottom: 2px;
   transition: color 0.2s ease;
+  font-size: 0.95rem;
 }
 
 .social-links a:hover {
@@ -151,72 +170,68 @@ body {
 
 /* General Layout Blocks */
 .section-block {
-  padding: 4rem 0;
+  padding: 2.5rem 0;
 }
 
 .section-block h2 {
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   letter-spacing: -0.5px;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: 1fr; /* Default mobile 1-column format layout */
+  gap: 1.25rem;
 }
 
 .project-card {
   background: var(--card-bg);
   border: 1px solid var(--border-color);
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 12px;
   box-shadow: var(--soft-shadow);
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .project-meta {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   color: var(--text-muted);
   font-weight: 500;
 }
 
 .project-card h3 {
-  margin: 0.5rem 0 1rem 0;
-  font-size: 1.25rem;
+  margin: 0.5rem 0 0.75rem 0;
+  font-size: 1.15rem;
 }
 
 .project-card p {
   color: var(--text-muted);
   line-height: 1.5;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .tags-row {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
 }
 
 .tag-badge {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   background: var(--bg-primary);
   border: 1px solid var(--border-color);
-  padding: 0.25rem 0.6rem;
+  padding: 0.2rem 0.5rem;
   border-radius: 4px;
   color: var(--text-muted);
 }
 
 .grid-two-col {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr; /* Stacks columns by default on mobile devices */
   gap: 2rem;
-}
-
-@media(max-width: 768px) {
-  .grid-two-col { grid-template-columns: 1fr; }
 }
 
 .outlet-card {
@@ -224,9 +239,16 @@ body {
   padding-top: 1.5rem;
 }
 
+.outlet-card h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
 .outlet-card p {
   color: var(--text-muted);
   line-height: 1.6;
+  font-size: 0.9rem;
+  margin: 0;
 }
 
 .action-link {
@@ -235,6 +257,7 @@ body {
   color: var(--accent-cyan);
   text-decoration: none;
   font-weight: 600;
+  font-size: 0.9rem;
 }
 
 /* Playful Custom Accent Layer when activated */
@@ -242,7 +265,7 @@ body {
   background-color: #faf6f8; 
 }
 [data-theme="dark"].creative-accent {
-  background-color: #191b22; /* Soft muted cosmic plum for dark mode art accent */
+  background-color: #191b22; 
 }
 
 .creative-accent .project-card {
@@ -255,23 +278,62 @@ body {
 
 .site-footer {
   text-align: center;
-  padding: 4rem 0 2rem 0;
-  font-size: 0.85rem;
+  padding: 3rem 0 1.5rem 0;
+  font-size: 0.8rem;
   color: var(--text-muted);
   border-top: 1px solid var(--border-color);
 }
 
-/* Apply custom logo cursor upon text hovering */
-.hero-bio,
-.project-card p,
-.outlet-card p {
-  cursor: var(--custom-cursor);
-  /* Smooth transition effect to prevent jarring element pop-ins */
-  transition: transform 0.2s ease;
+/* Adjustments for right-to-left layout languages like Arabic */
+html[dir="rtl"] .brand-name {
+  letter-spacing: normal;
+}
+html[dir="rtl"] .hero-section h1 {
+  letter-spacing: normal;
+  line-height: 1.4;
 }
 
-/* Optional: Add a subtle artistic interactive swell when hovering */
-.creative-accent .hero-bio:hover,
-.creative-accent .project-card:hover p {
-  color: var(--text-main);
+/* ==========================================================================
+   Tablets and Desktop Responsive Scale Enhancements
+   ========================================================================== */
+@media (min-width: 480px) {
+  .navbar {
+    flex-direction: row; /* Turns row layout horizontal once size allows */
+    justify-content: space-between;
+  }
+  .nav-controls {
+    width: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .portfolio-container {
+    padding: 2rem 1.5rem;
+  }
+  .hero-section {
+    padding: 5rem 0;
+  }
+  .hero-section h1 {
+    font-size: 2.5rem; /* Scales smoothly on tablet/desktop viewports */
+  }
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  }
+  .grid-two-col {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Safe Guard: Only inject custom logo cursors on devices capable of accurate hovering */
+@media (hover: hover) and (pointer: fine) {
+  .hero-bio,
+  .project-card p,
+  .outlet-card p {
+    cursor: var(--custom-cursor);
+    transition: transform 0.2s ease;
+  }
+  .creative-accent .hero-bio:hover,
+  .creative-accent .project-card:hover p {
+    color: var(--text-main);
+  }
 }
