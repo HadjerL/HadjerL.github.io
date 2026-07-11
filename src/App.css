@@ -1,184 +1,260 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
-
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
+:root {
+  --bg-primary: #fcfbfc;
+  --text-main: #2d3436;
+  --text-muted: #636e72;
+  --accent-pink: #ff6b81;
+  --accent-cyan: #0a819c;
+  --card-bg: #ffffff;
+  --border-color: #f1f2f6;
+  --soft-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  --btn-border: #2d3436;
+  --btn-hover-bg: #2d3436;
+  --btn-hover-text: #ffffff;
 }
 
-.hero {
-  position: relative;
-
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
-
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-  .framework,
-  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
+/* Dark Theme Palette adjustments based on your cyan logo shades */
+[data-theme="dark"] {
+  --bg-primary: #12181a;     /* Deep slate midnight tint */
+  --text-main: #e3e9eb;      /* Clear neutral off-white text */
+  --text-muted: #95a5a6;    /* Soft readable gray description text */
+  --accent-pink: #ff768b;    /* Slightly more vibrant pink for contrast */
+  --accent-cyan: #14a2c0;    /* Bright version of your signature logo teal */
+  --card-bg: #1c2426;        /* Smooth clean background for component cards */
+  --border-color: #263235;   /* Crisp, structural structural borders */
+  --soft-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  --btn-border: #e3e9eb;
+  --btn-hover-bg: #e3e9eb;
+  --btn-hover-text: #12181a;
 }
 
-#center {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
+/* Apply variables to document container layer dynamically */
+.portfolio-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-#next-steps {
-  display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
-
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-#docs {
-  border-right: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
-}
-
-#next-steps ul {
-  list-style: none;
+/* Ensure underlying body element tracks dark space perfectly */
+body {
+  margin: 0;
   padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-primary);
+  transition: background-color 0.3s ease;
+}
+
+/* Navbar Flex Setup */
+.navbar {
   display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--border-color);
 }
 
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
-.ticks {
-  position: relative;
-  width: 100%;
+.site-logo {
+  height: 38px;
+  width: auto;
+}
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
-  }
+.brand-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: -0.5px;
+}
 
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
-  }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
-  }
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Universal Button Styling rule bindings */
+.art-toggle-btn, .theme-toggle-btn {
+  background: transparent;
+  border: 1px solid var(--btn-border);
+  color: var(--text-main);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.theme-toggle-btn {
+  padding: 0.5rem 0.75rem;
+}
+
+.art-toggle-btn:hover, .theme-toggle-btn:hover {
+  background: var(--btn-hover-bg);
+  color: var(--btn-hover-text);
+}
+
+/* Hero Elements styling map handles */
+.hero-section {
+  padding: 5rem 0;
+}
+
+.badge-intro {
+  color: var(--accent-cyan);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  max-width: 800px;
+  margin: 0.5rem 0 1.5rem 0;
+}
+
+.hero-bio {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 650px;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.social-links a {
+  color: var(--text-main);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 2px solid var(--accent-pink);
+  padding-bottom: 2px;
+  transition: color 0.2s ease;
+}
+
+.social-links a:hover {
+  color: var(--accent-pink);
+}
+
+/* General Layout Blocks */
+.section-block {
+  padding: 4rem 0;
+}
+
+.section-block h2 {
+  font-size: 1.5rem;
+  letter-spacing: -0.5px;
+  margin-bottom: 2rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--soft-shadow);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.project-meta {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.project-card h3 {
+  margin: 0.5rem 0 1rem 0;
+  font-size: 1.25rem;
+}
+
+.project-card p {
+  color: var(--text-muted);
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.tag-badge {
+  font-size: 0.75rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  color: var(--text-muted);
+}
+
+.grid-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media(max-width: 768px) {
+  .grid-two-col { grid-template-columns: 1fr; }
+}
+
+.outlet-card {
+  border-top: 2px solid var(--border-color);
+  padding-top: 1.5rem;
+}
+
+.outlet-card p {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.action-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--accent-cyan);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Playful Custom Accent Layer when activated */
+.creative-accent {
+  background-color: #faf6f8; 
+}
+[data-theme="dark"].creative-accent {
+  background-color: #191b22; /* Soft muted cosmic plum for dark mode art accent */
+}
+
+.creative-accent .project-card {
+  border-radius: 20px 10px 20px 12px/14px 20px 12px 20px;
+  border-color: rgba(255, 107, 129, 0.3);
+}
+.creative-accent .badge-intro {
+  color: var(--accent-pink);
+}
+
+.site-footer {
+  text-align: center;
+  padding: 4rem 0 2rem 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-color);
 }

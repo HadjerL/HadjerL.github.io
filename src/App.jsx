@@ -1,121 +1,121 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useState } from 'react';
+import logoLight from './assets/Logo.png';
+import logoDark from './assets/Dark-Logo.png';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [theme, setTheme] = useState('light');
+  const [creativeMode, setCreativeMode] = useState(false);
+
+  // Toggle theme utility
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'light' ? 'dark' : 'light');
+  };
+
+  const projects = [
+    {
+      title: "National Library Digital Transformation",
+      company: "Spintechs",
+      description: "Architected modern registry modules, subscription systems, and multi-criteria analytical dashboards using Spring Boot and React.",
+      tags: ["Spring Boot", "React.js", "Zod", "PostgreSQL"]
+    },
+    {
+      title: "AI Predictive Maintenance System",
+      company: "CDER",
+      description: "Developed deep learning models (CNN, LSTM) deployed on Jetson Nano hardware for real-time wind turbine fault anomaly detection.",
+      tags: ["Deep Learning", "Python", "Jetson Nano", "React"]
+    }
+  ];
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+    <div 
+      className={`portfolio-container ${creativeMode ? 'creative-accent' : ''}`}
+      data-theme={theme}
+    >
+      {/* Header / Nav */}
+      <header className="navbar">
+        <div className="logo-area">
+          <img 
+            src={theme === 'light' ? logoLight : logoDark} 
+            alt="Hadjer L. Logo" 
+            className="site-logo" 
+          />
+          <span className="brand-name">Hadjer Laissaoui</span>
         </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
+        <nav className="nav-controls">
+          <button 
+            className="art-toggle-btn"
+            onClick={() => setCreativeMode(!creativeMode)}
+            title="Toggle artistic accents"
+          >
+            {creativeMode ? "✨ Engineering" : "🎨 Creative Accent"}
+          </button>
+          
+          <button 
+            className="theme-toggle-btn"
+            onClick={toggleTheme}
+            aria-label="Toggle dark mode"
+          >
+            {theme === 'light' ? '🌙' : '☀️'}
+          </button>
+        </nav>
+      </header>
+
+      {/* Hero Section */}
+      <section className="hero-section">
+        <div className="hero-text">
+          <p className="badge-intro">Software Engineer @ ESI Algiers</p>
+          <h1>Building robust backend architectures with elegant client interfaces.</h1>
+          <p className="hero-bio">
+            Passionate about full-stack development, applied AI, and systemic design. 
+            When I'm not writing clean code, I translate thoughts into technical blogs and digital sketches.
           </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
+          <div className="social-links">
+            <a href="https://github.com/HadjerL" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://linkedin.com/in/hadjer-laissaoui" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="https://medium.com/@hadjerlais77" target="_blank" rel="noreferrer">Medium Blog</a>
+          </div>
         </div>
       </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+      {/* Featured Projects */}
+      <section className="section-block">
+        <h2>Featured Engineering Work</h2>
+        <div className="projects-grid">
+          {projects.map((proj, idx) => (
+            <div key={idx} className="project-card">
+              <span className="project-meta">{proj.company}</span>
+              <h3>{proj.title}</h3>
+              <p>{proj.description}</p>
+              <div className="tags-row">
+                {proj.tags.map((t, i) => <span key={i} className="tag-badge">{t}</span>)}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Creative & Writing Outlets */}
+      <section className="section-block grid-two-col">
+        <div className="outlet-card">
+          <h2>Technical Writing</h2>
+          <p>I synthesize engineering concepts, frameworks, and architectural clean practices down into bite-sized technical insights on Medium.</p>
+          <a href="https://medium.com/@hadjerlais77" target="_blank" rel="noreferrer" className="action-link">Read Articles →</a>
+        </div>
+        
+        <div className="outlet-card creative-card">
+          <h2>Creative Outlets</h2>
+          <p>Art keeps my systemic thinking balanced. Feel free to view my character sketches, line-arts, and personal illustrations over on my design page.</p>
+          <a href="https://www.instagram.com/es_hadjer/" target="_blank" rel="noreferrer" className="action-link">View Art Gallery →</a>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="site-footer">
+        <p>© 2026 Hadjer Laissaoui. Made with React & Vite. Hosted via GitHub Pages.</p>
+      </footer>
+    </div>
+  );
 }
 
-export default App
+export default App;
