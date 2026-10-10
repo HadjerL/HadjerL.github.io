@@ -49,3 +49,107 @@ section{margin-bottom:26px;scroll-margin-top:150px}
 footer{position:relative;z-index:1;margin-top:40px;text-align:center;background:var(--grass2);border-top:4px solid var(--bd);padding:0 0 22px}
 .meadow{display:flex;justify-content:center;align-items:flex-end;gap:10px;margin-top:-52px;flex-wrap:wrap;overflow:hidden}footer p{margin:14px 0 0;color:#fff}
 @media(max-width:900px){.wrap{grid-template-columns:1fr}aside .card{position:static}.grid{grid-template-columns:1fr}.gardener{left:4%}.orb{right:4%}.search{flex-basis:140px}.step h3{max-width:100%;margin-top:8px}}
+
+/* ---------- mobile polish ---------- */
+html{-webkit-text-size-adjust:100%}body{overflow-x:hidden}
+h3{overflow-wrap:anywhere}
+@media(max-width:700px){
+  body{font-size:20px}
+  .hud{min-height:54px;padding:8px 12px;gap:8px}
+  .brand span{display:none}.spacer{display:none}
+  .search{flex:1 1 auto;font-size:18px;padding:3px 8px}
+  .pxbtn{min-height:40px;min-width:40px;padding:8px 10px}
+  .hero{height:270px}
+  .orb{width:46px;height:auto;top:24px;right:6%}
+  .gardener{width:70px;height:auto;left:4%;bottom:50px}
+  .sign{margin:-30px 14px 0;padding:14px 16px}.sign p{font-size:21px;margin-top:8px}
+  .posts{top:54px;justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;padding:10px 12px;gap:8px}
+  .post{flex:none;padding:10px}
+  .wrap{padding:0 14px;margin:20px auto;gap:18px}
+  .card{padding:14px;margin-bottom:18px}
+  section{scroll-margin-top:112px;margin-bottom:18px}
+  h2.title{font-size:13px}
+  .bed{gap:12px}.bloom{width:40px;height:auto}
+  .tag,.slot{font-size:17px}
+  .log{padding-left:18px}.log:before{left:4px}
+  .stamp{position:static;display:inline-block;margin-bottom:8px}
+  .step h3{max-width:100%}
+  .meadow{margin-top:-40px;gap:6px}.meadow svg{width:28px;height:auto}
+}
+
+.wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px; /* Légèrement réduit pour un meilleur confort visuel */
+  margin: 28px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr); /* Utilisation de minmax(0, 1fr) pour éviter les débordements */
+  gap: 24px;
+}
+
+/* ---------- Ajustement de la grille des projets ---------- */
+.grid {
+  display: grid;
+  /* Passe automatiquement à 1 colonne sur les écrans moyens/petits */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 18px;
+}
+
+/* ---------- Optimisation du dimensionnement des cartes ---------- */
+.card {
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  width: 100%; /* S'assure que la carte ne dépasse jamais son conteneur */
+}
+
+/* Des cartes plus compactes et lisibles dans les projets */
+.bed {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.bed > div {
+  min-width: 0; /* Permet au texte et aux tags de se réduire proprement sans forcer la carte à s'élargir */
+}
+
+/* ---------- Responsive mobile & tablettes ---------- */
+@media (max-width: 900px) {
+  .wrap {
+    grid-template-columns: 1fr; /* Bascule en 1 seule colonne sur tablette */
+  }
+  aside .card {
+    position: static;
+  }
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr; /* 1 seule colonne sur mobile */
+  }
+  .card {
+    padding: 14px;
+    margin-bottom: 16px;
+  }
+  aside, main { 
+    width: 97%;
+  }
+}
+
+@media (max-width: 600px) {
+  .wrap {
+    padding: 0 12px;
+    gap: 16px;
+  }
+  aside, main { 
+    width: 75%;
+  }
+}
+
+@media (max-width: 500px) {
+  aside, main { 
+    width: 55%;
+  }
+}
