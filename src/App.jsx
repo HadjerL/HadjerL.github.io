@@ -19,7 +19,7 @@ const PROJECTS = [
 const STACK = {
   'AI & data': ['Python', 'Deep learning', 'CNN · LSTM · RNN', 'Time series', 'Anomaly detection', 'Edge AI · Jetson Nano'],
   Frontend: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'TanStack Query', 'React Native', 'Figma'],
-  Backend: ['Java', 'Spring Boot', 'Node.js', 'NestJS', 'Django', 'REST APIs', 'PostgreSQL', 'MySQL'],
+  Backend: ['Java', 'Spring Boot', 'Node.js', 'NestJS', 'Django', 'REST APIs', 'PostgreSQL', 'MySQL', 'Redis'],
   Tools: ['Git · GitLab', 'GitHub Actions', 'Postman · Apidog', 'ESLint', 'Docker (basics)', 'MQTT · Arduino'],
 }
 const SECTIONS = ['overview', 'projects', 'experience', 'stack', 'writing', 'contact']
