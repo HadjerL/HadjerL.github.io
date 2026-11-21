@@ -174,6 +174,23 @@
       "retrospective": {
         "title": "Architecture Retrospective: What I Would Design Differently Today",
         "body": "The graduation prototype used a single Jetson Nano backend. Today I would investigate a local inference service at each turbine, fed by sensors or SCADA. It would send fault predictions and power forecasts to a central platform for fleet monitoring, history, alerts, and model management. Local inference could continue during upstream interruptions, isolate failures, and scale across the fleet. The trade-offs are additional hardware and maintenance and more complex deployment, security, monitoring, and rollback.\n\nI would evaluate a shared fleet model with controlled turbine-specific calibration or adaptation, given the limited data available for individual turbines and the need to generalize across operating conditions. Online retraining can cause catastrophic forgetting, reinforce unreliable pseudo-labels, and degrade performance. I would require centralized evaluation, approval, versioning, and rollback for model updates. This design was outside the original project and remains unvalidated."
+      },
+      "diagram": {
+        "title": "Implemented prototype architecture",
+        "source": "Historical SCADA CSV",
+        "simulator": "Configurable simulator",
+        "publish": "MQTT publish",
+        "broker": "MQTT broker",
+        "stream": "MQTT measurement stream",
+        "web": "Next.js web application",
+        "dashboard": "Monitoring dashboard",
+        "administration": "Administration interface",
+        "inferenceExchange": "HTTPS requests and predictions",
+        "lifecycleExchange": "Model lifecycle via HTTPS",
+        "edge": "Flask API on NVIDIA Jetson Nano",
+        "inference": "Preprocessing, time windows, classification and forecasting",
+        "lifecycle": "Training, testing, evaluation, versioning and activation",
+        "description": "The configurable simulator reads historical SCADA measurements from CSV and sends them to the Next.js application through an MQTT broker. The dashboard receives predictions in return for inference requests sent over HTTPS to the Flask API on the Jetson Nano. The administration interface uses the same API to manage model training, evaluation, versions, and activation."
       }
     }
   }

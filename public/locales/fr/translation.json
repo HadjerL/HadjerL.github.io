@@ -174,6 +174,23 @@
       "retrospective": {
         "title": "Retour critique sur l’architecture : ce que je concevrais différemment aujourd’hui",
         "body": "Le prototype utilisait un seul Jetson Nano comme serveur d’inférence. Aujourd’hui, j’étudierais un service d’inférence local par éolienne, alimenté par les capteurs ou les mesures SCADA. Il transmettrait les prédictions de défauts et les prévisions de production à une plateforme centrale chargée de superviser le parc, de gérer l’historique, les alertes et les modèles. L’inférence locale pourrait se poursuivre en cas de coupure de la liaison, mieux isoler les pannes et faciliter le passage à l’échelle. En contrepartie, il faudrait financer et entretenir davantage de matériel et gérer un déploiement, une sécurisation, une supervision et des retours arrière plus complexes.\n\nJ’évaluerais un modèle commun au parc avec une calibration ou une adaptation contrôlée par éolienne, compte tenu du peu de données disponibles à l’échelle de chaque éolienne et de la nécessité de généraliser à d’autres conditions de fonctionnement. Le réentraînement en ligne peut entraîner un oubli catastrophique, renforcer des pseudo-étiquettes peu fiables et dégrader les performances. Je centraliserais l’évaluation, l’approbation, la gestion des versions et les procédures de retour arrière. Cette architecture dépassait le périmètre du projet initial et reste à valider."
+      },
+      "diagram": {
+        "title": "Architecture du prototype réalisé",
+        "source": "Mesures SCADA historiques (CSV)",
+        "simulator": "Simulateur configurable",
+        "publish": "Publication MQTT",
+        "broker": "Broker MQTT",
+        "stream": "Flux de mesures MQTT",
+        "web": "Application web Next.js",
+        "dashboard": "Tableau de bord",
+        "administration": "Administration",
+        "inferenceExchange": "Requêtes et prédictions via HTTPS",
+        "lifecycleExchange": "Gestion des modèles via HTTPS",
+        "edge": "API Flask sur NVIDIA Jetson Nano",
+        "inference": "Prétraitement, fenêtres temporelles, classification et prévision",
+        "lifecycle": "Entraînement, tests, évaluation, versions et activation",
+        "description": "Le simulateur configurable lit les mesures SCADA historiques dans un fichier CSV et les transmet à l’application Next.js via un broker MQTT. Le tableau de bord reçoit les prédictions en réponse aux requêtes d’inférence envoyées via HTTPS à l’API Flask sur le Jetson Nano. L’interface d’administration utilise la même API pour gérer l’entraînement, l’évaluation, les versions et l’activation des modèles."
       }
     }
   }

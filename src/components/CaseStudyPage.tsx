@@ -5,6 +5,7 @@ import { usePortfolioLanguage, useTheme } from '../hooks/portfolioPreferences'
 import type { Project } from '../types/portfolio'
 import { GardenSky, SiteFooter, SiteHeader } from './SiteLayout'
 import { Sprite } from './Sprite'
+import { WindArchitectureDiagram } from './WindArchitectureDiagram'
 
 interface Props {
   study: CaseStudy
@@ -59,6 +60,7 @@ export function CaseStudyPage({ study, project, initialLanguageFailed }: Props) 
             <section id={section} key={section}>
               <h2>{t(`${key}.${section}.title`)}</h2>
               {t(`${key}.${section}.body`).split('\n\n').map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              {study.projectId === 'wind' && section === 'architecture' && <WindArchitectureDiagram />}
             </section>
           ))}
           <section id="technologies">
