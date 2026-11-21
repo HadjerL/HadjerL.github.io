@@ -1,0 +1,137 @@
+{
+  "search": "Rechercher un projet…",
+  "nav": {
+    "overview": "À propos",
+    "projects": "Projets",
+    "experience": "Expérience",
+    "stack": "Compétences",
+    "education": "Formation",
+    "writing": "Articles",
+    "contact": "Contact"
+  },
+  "headline": "Ingénieure logicielle | IA appliquée et systèmes intelligents",
+  "intro": "Je conçois et développe des logiciels, de l’architecture et des services backend jusqu’aux interfaces et au déploiement. Mes projets couvrent les applications d’entreprise, le machine learning appliqué et les systèmes embarqués.",
+  "availability": "Disponible pour un stage de fin d’études du 15 mars à septembre 2027.",
+  "explore": "Voir mes projets",
+  "downloadCv": "Télécharger mon CV",
+  "cvLanguage": {
+    "en": "CV en anglais (PDF)",
+    "fr": "CV en français (PDF)"
+  },
+  "touch": "Me contacter",
+  "place": "Île-de-France, France",
+  "langs": "Arabe (langue maternelle) · Français et anglais (C1) · Chinois (débutant)",
+  "about": "Diplômée de l’ESI Alger, je suis en master à l’UPEC, où je me spécialise en IA, science des données et systèmes cyber-physiques.",
+  "projectsTitle": "Projets à la une",
+  "otherProjects": "Autres projets",
+  "empty": "Aucun projet ne correspond à votre recherche.",
+  "projectStatus": {
+    "ongoingProfessional": "Projet professionnel en cours",
+    "completedGraduation": "Projet de fin d’études terminé",
+    "completedTeam": "Projet académique en équipe terminé",
+    "ongoingAcademic": "Mini-projet académique en cours",
+    "client": "Projet client",
+    "internship": "Stage"
+  },
+  "projects": {
+    "lib": {
+      "title": "Système d’information d’une bibliothèque nationale",
+      "summary": "Chez Spintechs, j’ai conçu des API REST Spring Boot et des modèles de domaine pour les lecteurs, le personnel et les visiteurs. J’ai développé les parcours d’inscription, des interfaces d’administration React et des fonctionnalités du portail lecteurs, dont la prise en charge de plusieurs langues et de l’écriture de droite à gauche."
+    },
+    "wind": {
+      "title": "Maintenance prédictive d’éoliennes",
+      "summary": "En binôme, nous avons combiné la classification de défauts à partir de données SCADA et la prévision de production. J’ai conçu l’architecture logicielle, développé le tableau de bord et le simulateur, et travaillé sur l’analyse de séries temporelles, l’intégration MQTT et la configuration du Jetson Nano.",
+      "note": "L’évaluation doit être approfondie pour vérifier les risques de fuite de données et la capacité de généralisation.",
+      "link": "Dépôt du simulateur éolien"
+    },
+    "qube": {
+      "title": "QubeLink — Prise connectée",
+      "summary": "En équipe, nous avons prototypé une prise commandée depuis une application mobile. J’ai conçu le circuit et le boîtier, développé le micrologiciel ESP8266 avec Wi-Fi et MQTT, et mis en œuvre la connexion côté application.",
+      "link": "Dépôt de QubeLink"
+    },
+    "gait": {
+      "title": "Estimation personnalisée des phases de la marche",
+      "summary": "À l’UPEC, j’étudie comment estimer les phases de la marche à partir de capteurs portés sur le corps et adapter ces méthodes aux différences entre les personnes."
+    },
+    "brace": {
+      "title": "BracePy — Frontend de compilateur",
+      "summary": "La partie analyse d’un compilateur pour un langage personnalisé, couvrant les analyses lexicale, syntaxique et sémantique ainsi que la génération de code intermédiaire.",
+      "link": "Dépôt de BracePy"
+    },
+    "shop": {
+      "title": "Annassib — Plateforme e-commerce",
+      "summary": "Une boutique adaptée aux mobiles avec filtrage des produits, parcours de commande et interface d’administration des produits et des commandes.",
+      "link": "Site Annassib"
+    },
+    "att": {
+      "title": "Application de suivi des présences",
+      "summary": "Une application mobile de suivi des présences étudiantes à laquelle j’ai contribué lors de mon stage à l’université Yahia Fares."
+    }
+  },
+  "careerDates": {
+    "present": "aujourd’hui",
+    "expected": "{{dates}} (fin prévue)",
+    "range": "{{start}} – {{end}}",
+    "sameYear": "{{start}}–{{end}} {{year}}"
+  },
+  "experience": {
+    "spintechs": {
+      "title": "Ingénieure logicielle full-stack · Spintechs",
+      "context": "Freelance, à distance",
+      "summary": "Je prends en charge des fonctionnalités de bout en bout pour l’administration et les services aux lecteurs, des règles métier aux interfaces réutilisables. Je documente les API, teste les parcours et participe à l’intégration."
+    },
+    "freelance": {
+      "title": "Développeuse web freelance · Indépendante / Upwork",
+      "context": "Missions ponctuelles",
+      "clients": {
+        "karbal": "Cabinet Karbal · {{dates}}. Correction de problèmes d’interface, création de mises en page avec CodeIgniter et déploiement des mises à jour en production.",
+        "annassib": "Annassib · {{dates}}. Développement et déploiement d’une plateforme e-commerce avec parcours de commande, gestion des droits par rôle et interface d’administration."
+      }
+    },
+    "cder": {
+      "title": "Projet de fin d’études en IA et génie logiciel · CDER",
+      "context": "Alger, Algérie",
+      "summary": "En binôme, j’ai travaillé sur la maintenance prédictive d’éoliennes en contribuant aux essais de modèles, à l’intégration du système et à la documentation technique."
+    },
+    "mobile": {
+      "title": "Stagiaire en développement mobile · Université Yahia Fares",
+      "context": "Médéa, Algérie",
+      "summary": "J’ai travaillé sur une application de suivi des présences étudiantes avec {{technologies}}."
+    }
+  },
+  "education": {
+    "upec": {
+      "institution": "Université Paris-Est Créteil (UPEC)",
+      "degree": "Master 2 Intelligence artificielle, science des données et systèmes cyber-physiques (IA2S)"
+    },
+    "esi": {
+      "institution": "École Nationale Supérieure d’Informatique (ESI Alger)",
+      "degree": "Diplôme d’ingénieure d’État en informatique et master en systèmes informatiques et logiciels"
+    },
+    "esiSba": {
+      "institution": "École Supérieure en Informatique (ESI-SBA)",
+      "degree": "Classes préparatoires en informatique"
+    }
+  },
+  "skills": {
+    "languages": "Langages de programmation",
+    "backend": "Backend",
+    "frontend": "Frontend et mobile",
+    "ai": "Machine learning et données",
+    "embedded": "Systèmes embarqués et IoT",
+    "tools": "Outils de développement",
+    "timeSeries": "Analyse de séries temporelles",
+    "evaluation": "Évaluation de modèles"
+  },
+  "chartTitle": "Contributions",
+  "chartAlt": "Calendrier des contributions GitHub",
+  "writing": "Retrouvez mes articles sur Medium.",
+  "skipToContent": "Aller au contenu principal",
+  "switchLanguage": {
+    "en": "Passer en anglais",
+    "fr": "Passer en français"
+  },
+  "useLightTheme": "Passer au thème clair",
+  "useDarkTheme": "Passer au thème sombre",
+  "languageLoadError": "Cette langue n’a pas pu être chargée. Actualisez la page pour réessayer."
+}

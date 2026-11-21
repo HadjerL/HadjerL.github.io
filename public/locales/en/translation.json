@@ -1,0 +1,137 @@
+{
+  "search": "Search projects…",
+  "nav": {
+    "overview": "About",
+    "projects": "Projects",
+    "experience": "Experience",
+    "stack": "Skills",
+    "education": "Education",
+    "writing": "Writing",
+    "contact": "Contact"
+  },
+  "headline": "Software Engineer | Applied AI & Intelligent Systems",
+  "intro": "I build software from architecture and backend services to user interfaces and deployment. My work spans enterprise applications, applied machine learning, and embedded systems.",
+  "availability": "Available for a final-year engineering internship from March 15 through September 2027.",
+  "explore": "Explore my work",
+  "downloadCv": "Download my CV",
+  "cvLanguage": {
+    "en": "English CV (PDF)",
+    "fr": "French CV (PDF)"
+  },
+  "touch": "Contact me",
+  "place": "Île-de-France, France",
+  "langs": "Arabic (native) · French and English (C1) · Chinese (beginner)",
+  "about": "I’m an ESI Algiers graduate and a Master’s student at UPEC, specializing in AI, data science, and cyber-physical systems.",
+  "projectsTitle": "Featured projects",
+  "otherProjects": "Other projects",
+  "empty": "No project matches your search.",
+  "projectStatus": {
+    "ongoingProfessional": "Ongoing professional project",
+    "completedGraduation": "Completed graduation project",
+    "completedTeam": "Completed academic team project",
+    "ongoingAcademic": "Ongoing academic mini-project",
+    "client": "Client work",
+    "internship": "Internship"
+  },
+  "projects": {
+    "lib": {
+      "title": "National Library Information System",
+      "summary": "At Spintechs, I designed Spring Boot REST APIs and domain models for readers, staff, and guests. I built registration workflows, React back-office interfaces, and reader portal features, including multilingual and right-to-left layouts."
+    },
+    "wind": {
+      "title": "Wind Turbine Predictive Maintenance",
+      "summary": "Our two-person team combined SCADA fault classification and power forecasting. I designed the software architecture, built the dashboard and simulator, and worked on time-series analysis, MQTT integration, and Jetson Nano setup.",
+      "note": "The evaluation needs further auditing to assess possible data leakage and generalization.",
+      "link": "Wind turbine simulator repository"
+    },
+    "qube": {
+      "title": "QubeLink — IoT Smart Plug",
+      "summary": "Our team built a smart plug controlled from a mobile app. I designed the circuit and enclosure, developed ESP8266 firmware with Wi-Fi and MQTT, and implemented the app’s connection functionality.",
+      "link": "QubeLink repository"
+    },
+    "gait": {
+      "title": "Personalized Gait Phase Estimation",
+      "summary": "At UPEC, I’m exploring how wearable sensor data can be used to estimate gait phases and how these methods can adapt to different individuals."
+    },
+    "brace": {
+      "title": "BracePy — Compiler Front End",
+      "summary": "A front end for a custom language, covering lexical, syntactic, and semantic analysis and intermediate-code generation.",
+      "link": "BracePy repository"
+    },
+    "shop": {
+      "title": "Annassib — E-commerce Platform",
+      "summary": "A responsive online store with product filtering, checkout, and an administration interface for managing products and orders.",
+      "link": "Annassib website"
+    },
+    "att": {
+      "title": "Student Attendance App",
+      "summary": "A mobile attendance-tracking application I worked on during my internship at Yahia Fares University."
+    }
+  },
+  "careerDates": {
+    "present": "Present",
+    "expected": "{{dates}} (expected)",
+    "range": "{{start}} – {{end}}",
+    "sameYear": "{{start}}–{{end}} {{year}}"
+  },
+  "experience": {
+    "spintechs": {
+      "title": "Full-Stack Software Engineer · Spintechs",
+      "context": "Freelance, remote",
+      "summary": "Own full-stack features across library administration and reader services, from business rules to reusable interfaces. Document APIs, test workflows, and support integration."
+    },
+    "freelance": {
+      "title": "Freelance Web Developer · Independent / Upwork",
+      "context": "Occasional client engagements",
+      "clients": {
+        "karbal": "Karbal Law Firm · {{dates}}. Fixed frontend issues, built new layouts in CodeIgniter, and deployed production updates.",
+        "annassib": "Annassib · {{dates}}. Built and deployed an e-commerce platform with checkout, role-based access, and an administration panel."
+      }
+    },
+    "cder": {
+      "title": "AI & Software Engineering Graduation Project · CDER",
+      "context": "Algiers, Algeria",
+      "summary": "Worked in a two-person team on wind turbine predictive maintenance, contributing to model experimentation, system integration, and technical documentation."
+    },
+    "mobile": {
+      "title": "Mobile Development Intern · Yahia Fares University",
+      "context": "Médéa, Algeria",
+      "summary": "Worked on a student attendance app using {{technologies}}."
+    }
+  },
+  "education": {
+    "upec": {
+      "institution": "Université Paris-Est Créteil (UPEC)",
+      "degree": "Master 2 in Artificial Intelligence, Data Science and Cyber-Physical Systems (IA2S)"
+    },
+    "esi": {
+      "institution": "École Nationale Supérieure d’Informatique (ESI Algiers)",
+      "degree": "State Engineering Degree in Computer Science and Master’s in Computer Systems and Software"
+    },
+    "esiSba": {
+      "institution": "École Supérieure en Informatique (ESI-SBA)",
+      "degree": "Preparatory Classes in Computer Science"
+    }
+  },
+  "skills": {
+    "languages": "Programming languages",
+    "backend": "Backend",
+    "frontend": "Frontend & mobile",
+    "ai": "Machine learning & data",
+    "embedded": "Embedded systems & IoT",
+    "tools": "Engineering tools",
+    "timeSeries": "Time-series analysis",
+    "evaluation": "Model evaluation"
+  },
+  "chartTitle": "Contributions",
+  "chartAlt": "GitHub contribution calendar",
+  "writing": "Find my writing on Medium.",
+  "skipToContent": "Skip to main content",
+  "switchLanguage": {
+    "en": "Switch to English",
+    "fr": "Switch to French"
+  },
+  "useLightTheme": "Switch to light theme",
+  "useDarkTheme": "Switch to dark theme",
+  "languageLoadError": "This language could not load. Refresh the page to try again."
+}
