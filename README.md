@@ -1,16 +1,28 @@
-# React + Vite
+# Hadjer Laissaoui’s portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A bilingual React and Vite portfolio for software engineering, applied AI, and intelligent systems. It uses strict TypeScript, plain CSS, and GitHub Pages.
 
-Currently, two official plugins are available:
+## Development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Use Node.js 22.12 or later on the Node.js 22 line and pnpm 10.11.0 to match the GitHub Pages build.
 
-## React Compiler
+```sh
+pnpm install --frozen-lockfile
+pnpm dev
+pnpm typecheck
+pnpm lint
+pnpm check:locales
+pnpm build
+pnpm preview
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+`pnpm build` checks the TypeScript source and translation key parity before writing the static site to `dist/`. The GitHub Pages workflow publishes that directory from `main`.
 
-## Expanding the ESLint configuration
+## Source and content
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- `src/main.tsx` starts the app. `src/App.tsx` composes the homepage sections in `src/components/`.
+- `src/data/` holds project, career, and profile metadata. Shared types live in `src/types/portfolio.ts`.
+- `src/i18n/config.ts` loads the English and French JSON files from `public/locales/` over HTTP using Vite’s base URL. Update both languages when changing a string.
+- `src/index.css` contains the responsive layout and both themes. `public/` contains the approved CVs, SEO, verification, and other public assets.
+
+Use the local editorial reference at `docs/portfolio-content.md` when available. Add new projects to `src/data/projects.ts` and use the same stable project ID in both sets of translations.
