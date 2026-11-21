@@ -133,5 +133,48 @@
   },
   "useLightTheme": "Passer au thème clair",
   "useDarkTheme": "Passer au thème sombre",
-  "languageLoadError": "Cette langue n’a pas pu être chargée. Actualisez la page pour réessayer."
+  "languageLoadError": "Cette langue n’a pas pu être chargée. Actualisez la page pour réessayer.",
+  "caseStudyUi": {
+    "read": "Lire l’étude de cas",
+    "back": "Retour aux projets",
+    "contents": "Sur cette page",
+    "technologies": "Technologies et dépôt",
+    "related": "Projets associés"
+  },
+  "caseStudies": {
+    "wind": {
+      "context": {
+        "title": "Problème et contexte",
+        "body": "Imane Haissam et moi avons réalisé ce projet de fin d’études au Centre de Développement des Énergies Renouvelables (CDER). Nous disposions de mesures SCADA historiques, sans éolienne physique connectée en continu pour les démonstrations."
+      },
+      "objectives": {
+        "title": "Objectifs du projet",
+        "body": "Nous cherchions à repérer les composants potentiellement défaillants par classification multi-étiquette et à prévoir la production électrique. La prévision devait aider à repérer les périodes de faible production propices aux interventions de maintenance."
+      },
+      "architecture": {
+        "title": "Architecture du système",
+        "body": "Le simulateur transmet les mesures à l’application web Next.js via un broker MQTT. L’application envoie les requêtes d’inférence via HTTPS à l’API Flask hébergée sur un NVIDIA Jetson Nano. Sur cet appareil, la chaîne de traitement prétraite les mesures, construit les fenêtres temporelles et exécute les modèles sélectionnés. L’API renvoie les prédictions à l’application web. Le tableau de bord affiche les mesures de fonctionnement, les résultats de classification des défauts et les prévisions de production. L’interface d’administration utilise la même API Flask pour gérer le cycle de vie des modèles."
+      },
+      "contributions": {
+        "title": "Mes contributions individuelles",
+        "body": "J’ai conçu l’architecture logicielle et les échanges entre composants, développé le simulateur, le tableau de bord et l’interface d’administration, puis intégré les modèles à l’application. J’ai conçu les échanges MQTT et configuré l’environnement du Jetson Nano.\n\nJ’ai également travaillé sur l’exploration et le prétraitement des séries temporelles, la construction de variables et l’évaluation, en me concentrant sur les méthodes statistiques et l’apprentissage automatique classique. J’ai contribué aux essais d’apprentissage profond et aux comparaisons de modèles de l’équipe. J’ai rédigé le chapitre du rapport sur l’analyse de séries temporelles et les sections consacrées à l’architecture et à la conception logicielle."
+      },
+      "implementation": {
+        "title": "Mise en œuvre technique",
+        "body": "Le simulateur charge les mesures SCADA historiques depuis un fichier CSV. L’utilisateur peut choisir une éolienne et un point de départ, régler la cadence d’envoi, puis mettre le flux en pause ou le reprendre. Les mesures sont publiées dans l’ordre pour que le reste du système reçoive un flux pendant les essais et les démonstrations.\n\nLes essais de classification ont comparé des CNN, LSTM, RNN et forêts aléatoires. Pour la prévision, l’équipe a exploré les LSTM, CNN, ARIMA, Prophet et KNN. Elle a travaillé sur la construction de variables et le prétraitement des séries temporelles multivariées, et a exploré la décomposition MSTL pour la prévision. Les mesures d’origine étaient relevées toutes les dix minutes. Pour la prévision, nous les avons rééchantillonnées à l’heure et produit 24 prédictions horaires sur un horizon de 24 heures."
+      },
+      "decisions": {
+        "title": "Choix techniques",
+        "body": "Le simulateur permettait de rejouer les mêmes mesures à différentes cadences pour tester la chaîne MQTT jusqu’au tableau de bord, sans accès à une éolienne en direct. Cette relecture rendait les démonstrations reproductibles. Des essais en acquisition réelle resteraient nécessaires pour évaluer le comportement du système en conditions d’exploitation et de réseau réelles.\n\nL’interface d’administration séparait l’entraînement et l’évaluation de l’activation. L’administrateur pouvait comparer les métriques et conserver le modèle en service ou activer une autre version. Il pouvait ainsi examiner les résultats avant de décider quel modèle utiliser.\n\nNext.js orchestrait les requêtes d’inférence. Une seule API Flask sur le Jetson Nano assurait l’exécution et la gestion des modèles. Ce choix centralisait leur gestion pour le prototype. En contrepartie, l’inférence dépendait de la liaison entre le serveur web et le Jetson, ainsi que de la disponibilité de ce serveur d’inférence unique."
+      },
+      "results": {
+        "title": "Résultats et limites",
+        "body": "Le prototype a démontré la chaîne qui relie la relecture des mesures SCADA aux prédictions de défauts et aux prévisions de production affichées dans le tableau de bord. Le découpage documenté répartissait les données entre entraînement (60 %), validation (20 %) et test (20 %). Un exemple de réglage des hyperparamètres utilise comme données de validation des variables nommées X_test et y_test. Il faut vérifier les partitions de l’expérience d’origine pour savoir si le jeu de test final est resté distinct des données utilisées pour le réglage.\n\nUne nouvelle évaluation devrait vérifier que les jeux de données sont strictement séparés dans le temps, que les paramètres du prétraitement sont estimés uniquement sur les données d’entraînement et que les fenêtres qui se chevauchent ne franchissent pas les limites entre les jeux. Il faudrait aussi vérifier si la décomposition MSTL peut exploiter des observations futures et mesurer la généralisation à des éoliennes et à des conditions de fonctionnement inédites."
+      },
+      "retrospective": {
+        "title": "Retour critique sur l’architecture : ce que je concevrais différemment aujourd’hui",
+        "body": "Le prototype utilisait un seul Jetson Nano comme serveur d’inférence. Aujourd’hui, j’étudierais un service d’inférence local par éolienne, alimenté par les capteurs ou les mesures SCADA. Il transmettrait les prédictions de défauts et les prévisions de production à une plateforme centrale chargée de superviser le parc, de gérer l’historique, les alertes et les modèles. L’inférence locale pourrait se poursuivre en cas de coupure de la liaison, mieux isoler les pannes et faciliter le passage à l’échelle. En contrepartie, il faudrait financer et entretenir davantage de matériel et gérer un déploiement, une sécurisation, une supervision et des retours arrière plus complexes.\n\nJ’évaluerais un modèle commun au parc avec une calibration ou une adaptation contrôlée par éolienne, compte tenu du peu de données disponibles à l’échelle de chaque éolienne et de la nécessité de généraliser à d’autres conditions de fonctionnement. Le réentraînement en ligne peut entraîner un oubli catastrophique, renforcer des pseudo-étiquettes peu fiables et dégrader les performances. Je centraliserais l’évaluation, l’approbation, la gestion des versions et les procédures de retour arrière. Cette architecture dépassait le périmètre du projet initial et reste à valider."
+      }
+    }
+  }
 }

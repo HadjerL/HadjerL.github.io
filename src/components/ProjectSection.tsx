@@ -1,5 +1,6 @@
 import type { TFunction } from 'i18next'
 import { useTranslation } from 'react-i18next'
+import { caseStudies, caseStudyPath } from '../data/caseStudies'
 import { projects } from '../data/projects'
 import type { Project } from '../types/portfolio'
 import { Sprite } from './Sprite'
@@ -7,6 +8,7 @@ import { Sprite } from './Sprite'
 function ProjectCard({ project, t }: { project: Project; t: TFunction }) {
   const { id, petal, status, hasNote, technologies, url } = project
   const key = `projects.${id}`
+  const study = caseStudies.find(({ projectId }) => projectId === id)
 
   return (
     <article className="px card bed">
@@ -20,6 +22,9 @@ function ProjectCard({ project, t }: { project: Project; t: TFunction }) {
           <div className="tags">
             {technologies.map((technology) => <span className="tag" key={technology}>{technology}</span>)}
           </div>
+        )}
+        {study && (
+          <p><a href={import.meta.env.BASE_URL + caseStudyPath(study)}>{t('caseStudyUi.read')}</a></p>
         )}
         {url && <p><a href={url}>{t(`${key}.link`)}</a></p>}
       </div>

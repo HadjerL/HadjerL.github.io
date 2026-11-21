@@ -133,5 +133,48 @@
   },
   "useLightTheme": "Switch to light theme",
   "useDarkTheme": "Switch to dark theme",
-  "languageLoadError": "This language could not load. Refresh the page to try again."
+  "languageLoadError": "This language could not load. Refresh the page to try again.",
+  "caseStudyUi": {
+    "read": "Read case study",
+    "back": "Back to projects",
+    "contents": "On this page",
+    "technologies": "Technologies and repository",
+    "related": "Related projects"
+  },
+  "caseStudies": {
+    "wind": {
+      "context": {
+        "title": "Problem and context",
+        "body": "Imane Haissam and I developed this graduation project at the Centre de Développement des Énergies Renouvelables (CDER). We had historical SCADA measurements and no continuously connected physical turbine for demonstrations."
+      },
+      "objectives": {
+        "title": "Project objectives",
+        "body": "We aimed to flag potentially faulty turbine components through multi-label classification and forecast power production. The forecast was intended to help identify lower-production periods for maintenance planning."
+      },
+      "architecture": {
+        "title": "System architecture",
+        "body": "The simulator sends measurements through an MQTT broker to the Next.js web application. The application forwards inference requests over HTTPS to the Flask API on an NVIDIA Jetson Nano. On the device, the pipeline preprocesses the measurements, constructs time-series windows, and runs the selected models. Predictions return through the API to the web application. The dashboard displays operational measurements, fault classifications, and power forecasts. The administration interface uses the same Flask backend for model lifecycle operations."
+      },
+      "contributions": {
+        "title": "My individual contributions",
+        "body": "I designed the software architecture and communication workflow, built the simulator, dashboard, and administration interface, and integrated the models with the application. I designed the MQTT exchanges and configured the Jetson Nano environment.\n\nI also worked on time-series exploration, preprocessing, feature engineering, and evaluation, focusing on statistical and traditional machine-learning methods. I contributed to the team’s deep-learning experiments and comparisons. I wrote the report chapter on time-series analysis and the sections on software architecture and design."
+      },
+      "implementation": {
+        "title": "Technical implementation",
+        "body": "The simulator loads historical SCADA measurements from CSV. A user can select a turbine and starting sample, set the replay rate, and pause or resume transmission. The measurements are published in order so the rest of the system receives a stream during tests and demonstrations.\n\nThe classification experiments compared CNN, LSTM, RNN, and Random Forest models. The forecasting experiments covered LSTM, CNN, ARIMA, Prophet, and KNN. The team used feature engineering and multivariate time-series preprocessing, and explored MSTL decomposition for forecasting. Source measurements were recorded every ten minutes. For forecasting, we resampled them hourly and produced 24 hourly predictions over a 24-hour horizon."
+      },
+      "decisions": {
+        "title": "Engineering decisions",
+        "body": "The simulator let us replay the same input at different rates to test the MQTT-to-dashboard path without access to a live turbine. Historical replay made demonstrations repeatable. Live acquisition would still need testing to assess behavior under real operating and network conditions.\n\nThe administration interface separated training and evaluation from activation. Administrators could compare metrics and keep the current model or activate another version. This made model changes reviewable and put the release decision in the administrator’s hands.\n\nNext.js coordinated inference requests, and one Flask backend on the Jetson Nano handled model execution and lifecycle operations. That kept model management in one place for the prototype. The trade-off was that inference depended on the web-to-Jetson connection and the availability of a single backend."
+      },
+      "results": {
+        "title": "Results and limitations",
+        "body": "The prototype demonstrated the path from replayed SCADA measurements to fault predictions and power forecasts in the dashboard. The evaluation used a documented 60% training, 20% validation, and 20% test split. One tuning example passes variables named X_test and y_test as validation data. The original experiment partitions need to be checked to confirm whether the final test set was kept separate from tuning.\n\nA follow-up evaluation should verify that the partitions are strictly separated in time, that preprocessing is fitted only on training data, and that overlapping windows do not cross partition boundaries. It should also check for possible look-ahead effects in MSTL decomposition and measure generalization across unseen turbines and operating conditions."
+      },
+      "retrospective": {
+        "title": "Architecture Retrospective: What I Would Design Differently Today",
+        "body": "The graduation prototype used a single Jetson Nano backend. Today I would investigate a local inference service at each turbine, fed by sensors or SCADA. It would send fault predictions and power forecasts to a central platform for fleet monitoring, history, alerts, and model management. Local inference could continue during upstream interruptions, isolate failures, and scale across the fleet. The trade-offs are additional hardware and maintenance and more complex deployment, security, monitoring, and rollback.\n\nI would evaluate a shared fleet model with controlled turbine-specific calibration or adaptation, given the limited data available for individual turbines and the need to generalize across operating conditions. Online retraining can cause catastrophic forgetting, reinforce unreliable pseudo-labels, and degrade performance. I would require centralized evaluation, approval, versioning, and rollback for model updates. This design was outside the original project and remains unvalidated."
+      }
+    }
+  }
 }
