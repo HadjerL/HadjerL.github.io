@@ -46,8 +46,8 @@
     },
     "qube": {
       "title": "QubeLink — IoT Smart Plug",
-      "summary": "Our team built a smart plug controlled from a mobile app. I designed the circuit and enclosure, developed ESP8266 firmware with Wi-Fi and MQTT, and implemented the app’s connection functionality.",
-      "link": "QubeLink repository"
+      "summary": "Our team built a smart plug prototype that switched a light bulb. I worked on ESP8266 firmware, Wi-Fi setup, LED feedback, and device connection in the React Native app.",
+      "link": "Firmware and project documentation"
     },
     "gait": {
       "title": "Personalized Gait Phase Estimation",
@@ -191,6 +191,44 @@
         "inference": "Preprocessing, time windows, classification and forecasting",
         "lifecycle": "Training, testing, evaluation, versioning and activation",
         "description": "The configurable simulator reads historical SCADA measurements from CSV and sends them to the Next.js application through an MQTT broker. The dashboard receives predictions in return for inference requests sent over HTTPS to the Flask API on the Jetson Nano. The administration interface uses the same API to manage model training, evaluation, versions, and activation."
+      }
+    },
+    "qube": {
+      "context": {
+        "title": "Project goal and vision",
+        "body": "QubeLink began as a modular smart-home concept: one React Native app would control multiple sockets connected to household appliances. Our team developed the project at ESI Alger between April and June 2024. The physical demo used a single socket to switch one light bulb."
+      },
+      "implementation": {
+        "title": "Implemented prototype",
+        "body": "The MQTT broker routed messages over Wi-Fi. The ESP8266 firmware interpreted the commands, controlled the relay output, and could report that output’s state on request. The prototype had a power LED and a separate LED for the MQTT connection. The team also worked on a React Native app."
+      },
+      "contributions": {
+        "title": "My contributions",
+        "body": "I contributed substantially to the ESP8266 firmware, including Wi-Fi setup and LED feedback, and worked on device connection in the mobile app. Circuit design, assembly, soldering, enclosure design and 3D printing, and physical integration were shared team work."
+      },
+      "decisions": {
+        "title": "Engineering decisions",
+        "body": "A Wi-Fi setup portal let users configure the device and specify a broker address. The connection LED provided feedback on whether the firmware reached the MQTT broker. The enclosure’s closing mechanism failed, so we glued it shut. That made it harder to reopen for repairs."
+      },
+      "results": {
+        "title": "Results and limitations",
+        "body": "The demonstration covered a single load: a light bulb. Other appliances, especially motor-driven loads, can draw higher startup currents. Supporting them would require reviewing relay ratings, insulation, strain relief, thermal design, and enclosure materials, followed by appropriate testing. The exact app-to-device path, app state synchronization, and control outside the local network remain unverified. The power LED was present, but the firmware does not establish how it was wired. Voice commands were planned for the app and remained unimplemented."
+      },
+      "retrospective": {
+        "title": "What I Would Design Differently Today",
+        "body": "For a small local-first prototype, I would consider a lightweight HTTP server on each ESP8266. The app could talk directly to each socket over local Wi-Fi to read its reported state, request an on/off change, or retrieve device and connection information. Removing the broker would simplify basic local control. The app would still need to discover and authenticate to devices, manage connections, and keep its displayed state in sync. MQTT would remain useful for central automation, asynchronous updates, and larger installations. Nearby BLE control would require compatible hardware such as an ESP32 because the ESP8266 lacks BLE.\n\nI would add a physical button as a fallback when the app or network is unavailable, provided the microcontroller and firmware are still running. One state mechanism would handle commands from the app, button, and any enabled sensor, with explicit priorities for conflicts. The app would distinguish the reported relay control state from measured power or actual appliance operation. I would also make the enclosure reliably reopenable, review component placement and heat dissipation, and preserve electrical protection around any openings."
+      },
+      "diagram": {
+        "title": "Implemented prototype",
+        "broker": "MQTT broker",
+        "exchange": "Commands ↓ · Reported control state ↑",
+        "firmware": "ESP8266 firmware",
+        "outlet": "Relay-controlled outlet",
+        "connectionLed": "Connection-status LED",
+        "separateComponents": "Other prototype components",
+        "app": "React Native app",
+        "powerLed": "Power-status LED",
+        "description": "The MQTT broker routes commands to the ESP8266 over Wi-Fi and routes state replies from it. The firmware interprets commands, controls the relay output and the connection LED, and can report its control output. The React Native app and power LED are shown as separate prototype components."
       }
     }
   }

@@ -42,4 +42,8 @@ for (const field of windDiagramFields) {
   assert.ok(english.includes(`caseStudies.wind.diagram.${field}`), `Missing wind diagram translation ${field}`)
 }
 
+for (const field of ['title', 'broker', 'exchange', 'firmware', 'outlet', 'connectionLed', 'separateComponents', 'app', 'powerLed', 'description']) {
+  assert.ok(english.includes(`caseStudies.qube.diagram.${field}`), `Missing QubeLink diagram translation ${field}`)
+}
+
 console.log(`Verified ${english.length} translation keys in English and French.`)

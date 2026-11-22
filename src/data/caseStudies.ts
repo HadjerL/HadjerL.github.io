@@ -16,6 +16,11 @@ export const caseStudies: readonly CaseStudy[] = [
     slug: 'wind-turbine-predictive-maintenance',
     sections: ['context', 'objectives', 'architecture', 'contributions', 'implementation', 'decisions', 'results', 'retrospective'],
   },
+  {
+    projectId: 'qube',
+    slug: 'qubelink',
+    sections: ['context', 'implementation', 'contributions', 'decisions', 'results', 'retrospective'],
+  },
 ]
 
 export function caseStudyPath(study: CaseStudy) {

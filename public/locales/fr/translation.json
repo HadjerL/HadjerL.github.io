@@ -46,8 +46,8 @@
     },
     "qube": {
       "title": "QubeLink — Prise connectée",
-      "summary": "En équipe, nous avons prototypé une prise commandée depuis une application mobile. J’ai conçu le circuit et le boîtier, développé le micrologiciel ESP8266 avec Wi-Fi et MQTT, et mis en œuvre la connexion côté application.",
-      "link": "Dépôt de QubeLink"
+      "summary": "Notre équipe a réalisé une prise connectée qui commandait une ampoule. J’ai travaillé sur le micrologiciel ESP8266, la configuration Wi-Fi, les voyants et la connexion de la prise dans l’application React Native.",
+      "link": "Micrologiciel et documentation du projet"
     },
     "gait": {
       "title": "Estimation personnalisée des phases de la marche",
@@ -191,6 +191,44 @@
         "inference": "Prétraitement, fenêtres temporelles, classification et prévision",
         "lifecycle": "Entraînement, tests, évaluation, versions et activation",
         "description": "Le simulateur configurable lit les mesures SCADA historiques dans un fichier CSV et les transmet à l’application Next.js via un broker MQTT. Le tableau de bord reçoit les prédictions en réponse aux requêtes d’inférence envoyées via HTTPS à l’API Flask sur le Jetson Nano. L’interface d’administration utilise la même API pour gérer l’entraînement, l’évaluation, les versions et l’activation des modèles."
+      }
+    },
+    "qube": {
+      "context": {
+        "title": "Objectif et vision du projet",
+        "body": "QubeLink est né d’une idée de domotique modulaire : une seule application React Native devait piloter plusieurs prises reliées à des appareils ménagers. Notre équipe a développé le projet à l’ESI Alger entre avril et juin 2024. La démonstration physique s’est limitée à une prise qui allumait et éteignait une ampoule."
+      },
+      "implementation": {
+        "title": "Prototype réalisé",
+        "body": "Le broker MQTT acheminait les messages via le Wi-Fi. Le micrologiciel de l’ESP8266 interprétait les commandes, pilotait la sortie du relais et pouvait en renvoyer l’état sur demande. Le prototype comportait un voyant d’alimentation et un voyant distinct pour la connexion MQTT. L’équipe a également travaillé sur une application React Native."
+      },
+      "contributions": {
+        "title": "Mes contributions",
+        "body": "J’ai largement contribué au micrologiciel de l’ESP8266, notamment à la configuration Wi-Fi et au retour d’état par LED. J’ai aussi travaillé sur la connexion de la prise dans l’application mobile. La conception du circuit, l’assemblage, la soudure, la conception et l’impression 3D du boîtier, ainsi que l’intégration physique relevaient du travail d’équipe."
+      },
+      "decisions": {
+        "title": "Choix techniques",
+        "body": "Un portail de configuration Wi-Fi permettait de paramétrer la prise et de renseigner l’adresse du broker. Le voyant de connexion indiquait si la prise était connectée au broker MQTT. Le mécanisme de fermeture du boîtier n’a pas fonctionné, si bien que nous avons collé le boîtier. Il était ensuite plus difficile de le rouvrir pour intervenir sur les composants."
+      },
+      "results": {
+        "title": "Résultats et limites",
+        "body": "La démonstration portait sur une seule charge : une ampoule. D’autres appareils, notamment ceux équipés d’un moteur, peuvent tirer un courant plus élevé au démarrage. Pour les prendre en charge, il faudrait vérifier les caractéristiques du relais, l’isolation, la retenue des câbles, la conception thermique et les matériaux du boîtier, puis réaliser des essais adaptés. Le chemin de communication entre l’application et la prise, la synchronisation de l’état dans l’application et le pilotage hors du réseau local restent à vérifier. Le voyant d’alimentation était présent, mais le micrologiciel ne permet pas de déterminer comment il était câblé. Des commandes vocales étaient prévues dans l’application, mais n’ont pas été réalisées."
+      },
+      "retrospective": {
+        "title": "Ce que je concevrais différemment aujourd’hui",
+        "body": "Pour un petit prototype sur réseau local, j’envisagerais un serveur HTTP léger sur chaque ESP8266. L’application pourrait communiquer directement avec chaque prise via le Wi-Fi local pour lire l’état signalé, demander un changement d’état ou consulter les informations sur la prise et sa connexion. Cette approche simplifierait le pilotage de base en supprimant la dépendance au broker. En contrepartie, l’application devrait détecter les prises, s’y authentifier, gérer les connexions et maintenir l’état affiché à jour. MQTT resterait utile pour les automatismes centralisés, les mises à jour asynchrones et les installations plus importantes. L’ESP8266 ne prend pas en charge le BLE. Un pilotage de proximité en BLE nécessiterait donc un matériel compatible, comme l’ESP32.\n\nJ’ajouterais un bouton physique qui resterait utilisable si l’application ou le réseau était indisponible, à condition que le microcontrôleur et le micrologiciel fonctionnent. Une gestion d’état commune traiterait les commandes de l’application, du bouton et des éventuels capteurs, avec des règles de priorité explicites en cas de conflit. L’application distinguerait l’état de commande du relais d’une mesure de puissance ou du fonctionnement réel de l’appareil. Je reverrais aussi le boîtier pour faciliter sa réouverture, étudierais le placement des composants et la dissipation thermique, et préserverais la protection électrique autour de toute ouverture."
+      },
+      "diagram": {
+        "title": "Prototype réalisé",
+        "broker": "Broker MQTT",
+        "exchange": "Commandes ↓ · État de commande signalé ↑",
+        "firmware": "Micrologiciel ESP8266",
+        "outlet": "Prise à relais",
+        "connectionLed": "Voyant de connexion",
+        "separateComponents": "Autres composants du prototype",
+        "app": "Application React Native",
+        "powerLed": "Voyant d’alimentation",
+        "description": "Le broker MQTT achemine les commandes vers l’ESP8266 via le Wi-Fi et relaie les réponses d’état de la prise. Le micrologiciel interprète les commandes, pilote la sortie du relais et le voyant de connexion, et peut renvoyer l’état de sa sortie. L’application React Native et le voyant d’alimentation sont représentés à part."
       }
     }
   }
