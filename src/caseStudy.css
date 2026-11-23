@@ -22,6 +22,12 @@
   padding-bottom: 12px;
   border-bottom: 3px solid var(--ac);
 }
+.study-opening {
+  margin-block: 18px;
+}
+.study-opening p {
+  margin: 0 0 10px;
+}
 .study section {
   scroll-margin-top: 85px;
 }

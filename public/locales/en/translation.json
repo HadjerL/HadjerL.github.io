@@ -143,6 +143,10 @@
   },
   "caseStudies": {
     "wind": {
+      "opening": {
+        "summary": "Our two-person team built a predictive maintenance prototype to flag potential wind turbine faults and forecast power production. I designed the software architecture, built the simulator and dashboard, and integrated the models with the application. Replaying historical measurements demonstrated the path from incoming data through inference on a Jetson Nano to the dashboard.",
+        "caveat": "The evaluation still needs to establish whether the final test data stayed separate from model tuning and whether the models generalize to unseen turbines."
+      },
       "context": {
         "title": "Problem and context",
         "body": "Imane Haissam and I developed this graduation project at the Centre de Développement des Énergies Renouvelables (CDER). We had historical SCADA measurements and no continuously connected physical turbine for demonstrations."

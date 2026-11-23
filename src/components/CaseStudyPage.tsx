@@ -49,6 +49,12 @@ export function CaseStudyPage({ study, project, initialLanguageFailed }: Props) 
             <h1>{t(`${projectKey}.title`)}</h1>
             {project.status && <p>{t(`projectStatus.${project.status}`)}</p>}
           </header>
+          {study.hasOpening && (
+            <div className="study-opening">
+              <p>{t(`${key}.opening.summary`)}</p>
+              <p className="project-note">{t(`${key}.opening.caveat`)}</p>
+            </div>
+          )}
           <nav aria-label={t('caseStudyUi.contents')}>
             <ul>
               {study.sections.map((section) => (

@@ -143,6 +143,10 @@
   },
   "caseStudies": {
     "wind": {
+      "opening": {
+        "summary": "En binôme, nous avons réalisé un prototype de maintenance prédictive pour signaler des défauts possibles sur les éoliennes et prévoir leur production électrique. J’ai conçu l’architecture logicielle, développé le simulateur et le tableau de bord, puis intégré les modèles à l’application. La relecture de mesures historiques a permis de démontrer la chaîne complète, de la réception des données à l’affichage des prédictions calculées sur un Jetson Nano.",
+        "caveat": "Il reste à vérifier que les données du test final sont restées séparées du réglage des modèles et que ceux-ci se généralisent à des éoliennes absentes des données d’entraînement."
+      },
       "context": {
         "title": "Problème et contexte",
         "body": "Imane Haissam et moi avons réalisé ce projet de fin d’études au Centre de Développement des Énergies Renouvelables (CDER). Nous disposions de mesures SCADA historiques, sans éolienne physique connectée en continu pour les démonstrations."

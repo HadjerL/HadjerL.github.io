@@ -26,6 +26,12 @@ const { caseStudies, caseStudyPath } = await import(`data:text/javascript;base64
 for (const study of caseStudies) {
   const entry = new URL(`../${caseStudyPath(study)}index.html`, import.meta.url)
   assert.ok(readFileSync(entry, 'utf8').includes(`data-project-id="${study.projectId}"`), `Wrong project ID in ${entry.pathname}`)
+  if (study.hasOpening) {
+    for (const field of ['summary', 'caveat']) {
+      const key = `caseStudies.${study.projectId}.opening.${field}`
+      assert.ok(english.includes(key), `Missing case-study translation ${key}`)
+    }
+  }
   for (const section of study.sections) {
     for (const field of ['title', 'body']) {
       const key = `caseStudies.${study.projectId}.${section}.${field}`

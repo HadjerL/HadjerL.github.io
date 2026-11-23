@@ -7,6 +7,7 @@ export interface CaseStudy {
   readonly projectId: ProjectId
   readonly slug: string
   readonly sections: readonly SectionId[]
+  readonly hasOpening?: boolean
   readonly relatedProjectIds?: readonly ProjectId[]
 }
 
@@ -14,6 +15,7 @@ export const caseStudies: readonly CaseStudy[] = [
   {
     projectId: 'wind',
     slug: 'wind-turbine-predictive-maintenance',
+    hasOpening: true,
     sections: ['context', 'objectives', 'architecture', 'contributions', 'implementation', 'decisions', 'results', 'retrospective'],
   },
   {
