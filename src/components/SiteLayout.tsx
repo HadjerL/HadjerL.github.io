@@ -46,7 +46,9 @@ export function Hero({ theme, currentLanguage }: { theme: Theme; currentLanguage
       <div className="sign px">
         <h1>Hadjer Laissaoui</h1>
         <p className="hero-headline">{t('headline')}</p>
+        <p className="hero-credentials">{t('credentials')}</p>
         <p>{t('intro')}</p>
+        <p><a className="hero-role" href="#experience">{t('currentRole')}</a></p>
         <p className="hero-availability">{t('availability')}</p>
         <div className="hero-actions">
           <a className="pxbtn" href="#projects">{t('explore')}</a>

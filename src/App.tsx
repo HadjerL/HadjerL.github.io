@@ -88,7 +88,7 @@ export default function App({ initialLanguageFailed }: { initialLanguageFailed: 
           <div className="content">
             <ProjectSection query={query} />
             <Experience />
-            <Skills theme={theme} />
+            <Skills />
             <Education />
             <Writing />
             <Contact />

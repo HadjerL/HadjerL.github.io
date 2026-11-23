@@ -8,13 +8,14 @@ import { Sprite } from './Sprite'
 function ProjectCard({ project, t }: { project: Project; t: TFunction }) {
   const { id, petal, status, hasNote, technologies, url } = project
   const key = `projects.${id}`
+  const title = t(`${key}.title`)
   const study = caseStudies.find(({ projectId }) => projectId === id)
 
   return (
     <article className="px card bed">
       <Sprite className="bloom" name="flower" scale={5} pal={{ o: petal }} />
       <div>
-        <h4>{t(`${key}.title`)}</h4>
+        <h4>{title}</h4>
         {status && <span className="lbl">{t(`projectStatus.${status}`)}</span>}
         <p>{t(`${key}.summary`)}</p>
         {hasNote && <p className="project-note">{t(`${key}.note`)}</p>}
@@ -24,7 +25,7 @@ function ProjectCard({ project, t }: { project: Project; t: TFunction }) {
           </div>
         )}
         {study && (
-          <p><a href={import.meta.env.BASE_URL + caseStudyPath(study)}>{t('caseStudyUi.read')}</a></p>
+          <p><a href={import.meta.env.BASE_URL + caseStudyPath(study)} aria-label={t('caseStudyUi.readProject', { title })}>{t('caseStudyUi.read')}</a></p>
         )}
         {url && <p><a href={url}>{t(`${key}.link`)}</a></p>}
       </div>

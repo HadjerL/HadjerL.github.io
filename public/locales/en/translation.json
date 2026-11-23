@@ -10,7 +10,9 @@
     "contact": "Contact"
   },
   "headline": "Software Engineer | Applied AI & Intelligent Systems",
-  "intro": "I build software from architecture and backend services to user interfaces and deployment. My work spans enterprise applications, applied machine learning, and embedded systems.",
+  "credentials": "ESI Algiers engineering graduate and master’s student in AI, data science, and cyber-physical systems at Université Paris-Est Créteil (UPEC).",
+  "intro": "I build backend services and user interfaces for enterprise software. My interests include applied AI, embedded systems, and R&D that connects software with physical systems.",
+  "currentRole": "Full-stack engineer at Spintechs",
   "availability": "Available for a final-year engineering internship from March 15 through September 2027.",
   "explore": "Explore my work",
   "downloadCv": "Download my CV",
@@ -21,7 +23,6 @@
   "touch": "Contact me",
   "place": "Île-de-France, France",
   "langs": "Arabic (native) · French and English (C1) · Chinese (beginner)",
-  "about": "I’m an ESI Algiers graduate and a Master’s student at UPEC, specializing in AI, data science, and cyber-physical systems.",
   "projectsTitle": "Featured projects",
   "otherProjects": "Other projects",
   "empty": "No project matches your search.",
@@ -29,29 +30,29 @@
     "ongoingProfessional": "Ongoing professional project",
     "completedGraduation": "Completed graduation project",
     "completedTeam": "Completed academic team project",
-    "ongoingAcademic": "Ongoing academic mini-project",
+    "ongoingAcademic": "Ongoing academic project",
     "client": "Client work",
     "internship": "Internship"
   },
   "projects": {
     "lib": {
       "title": "National Library Information System",
-      "summary": "At Spintechs, I designed Spring Boot REST APIs and domain models for readers, staff, and guests. I built registration workflows, React back-office interfaces, and reader portal features, including multilingual and right-to-left layouts."
+      "summary": "To support library administration and reader services, I modeled user roles in Spring Boot, built registration workflows, and developed React interfaces for staff and readers."
     },
     "wind": {
       "title": "Wind Turbine Predictive Maintenance",
-      "summary": "Our two-person team combined SCADA fault classification and power forecasting. I designed the software architecture, built the dashboard and simulator, and worked on time-series analysis, MQTT integration, and Jetson Nano setup.",
-      "note": "The evaluation needs further auditing to assess possible data leakage and generalization.",
+      "summary": "Our two-person team built a predictive maintenance prototype that used historical turbine data to flag potential faults and forecast power production. I designed the architecture and built the simulator and dashboard used in the demonstration.",
+      "note": "Further checks are needed to confirm that the test data stayed separate from model tuning and to assess how well the models generalize to other turbines.",
       "link": "Wind turbine simulator repository"
     },
     "qube": {
       "title": "QubeLink — IoT Smart Plug",
-      "summary": "Our team built a smart plug prototype that switched a light bulb. I worked on ESP8266 firmware, Wi-Fi setup, LED feedback, and device connection in the React Native app.",
+      "summary": "Our team built a smart plug prototype and demonstrated switching one light bulb. I worked on the ESP8266 firmware, including Wi-Fi setup and connection feedback for MQTT, and on device connection in the React Native app.",
       "link": "Firmware and project documentation"
     },
     "gait": {
       "title": "Personalized Gait Phase Estimation",
-      "summary": "At UPEC, I’m exploring how wearable sensor data can be used to estimate gait phases and how these methods can adapt to different individuals."
+      "summary": "At UPEC, I’m exploring how wearable sensor data can help estimate phases of the walking cycle and how AI methods could adapt to different people."
     },
     "brace": {
       "title": "BracePy — Compiler Front End",
@@ -78,7 +79,7 @@
     "spintechs": {
       "title": "Full-Stack Software Engineer · Spintechs",
       "context": "Freelance, remote",
-      "summary": "Own full-stack features across library administration and reader services, from business rules to reusable interfaces. Document APIs, test workflows, and support integration."
+      "summary": "At Spintechs, I develop features for a national library information system. I model reader, staff, and guest roles, implement registration rules in Spring Boot, and connect React administration interfaces to backend APIs. I document the APIs, test workflows, and support integration."
     },
     "freelance": {
       "title": "Freelance Web Developer · Independent / Upwork",
@@ -123,8 +124,6 @@
     "timeSeries": "Time-series analysis",
     "evaluation": "Model evaluation"
   },
-  "chartTitle": "Contributions",
-  "chartAlt": "GitHub contribution calendar",
   "writing": "Find my writing on Medium.",
   "skipToContent": "Skip to main content",
   "switchLanguage": {
@@ -139,7 +138,8 @@
     "back": "Back to projects",
     "contents": "On this page",
     "technologies": "Technologies and repository",
-    "related": "Related projects"
+    "related": "Related projects",
+    "readProject": "Read case study: {{title}}"
   },
   "caseStudies": {
     "wind": {

@@ -10,8 +10,10 @@
     "contact": "Contact"
   },
   "headline": "Ingénieure logicielle | IA appliquée et systèmes intelligents",
-  "intro": "Je conçois et développe des logiciels, de l’architecture et des services backend jusqu’aux interfaces et au déploiement. Mes projets couvrent les applications d’entreprise, le machine learning appliqué et les systèmes embarqués.",
-  "availability": "Disponible pour un stage de fin d’études du 15 mars à septembre 2027.",
+  "credentials": "Diplômée de l’ESI Alger, je poursuis un master en intelligence artificielle, science des données et systèmes cyber-physiques à l’Université Paris-Est Créteil (UPEC).",
+  "intro": "Je développe des services backend et des interfaces pour des applications d’entreprise. Je m’intéresse à l’IA appliquée, aux systèmes embarqués et à la R&D à l’interface entre logiciel et systèmes physiques.",
+  "currentRole": "Ingénieure full-stack chez Spintechs",
+  "availability": "Disponible pour un stage de fin d’études à partir du 15 mars 2027, jusqu’en septembre 2027.",
   "explore": "Voir mes projets",
   "downloadCv": "Télécharger mon CV",
   "cvLanguage": {
@@ -21,7 +23,6 @@
   "touch": "Me contacter",
   "place": "Île-de-France, France",
   "langs": "Arabe (langue maternelle) · Français et anglais (C1) · Chinois (débutant)",
-  "about": "Diplômée de l’ESI Alger, je suis en master à l’UPEC, où je me spécialise en IA, science des données et systèmes cyber-physiques.",
   "projectsTitle": "Projets à la une",
   "otherProjects": "Autres projets",
   "empty": "Aucun projet ne correspond à votre recherche.",
@@ -29,29 +30,29 @@
     "ongoingProfessional": "Projet professionnel en cours",
     "completedGraduation": "Projet de fin d’études terminé",
     "completedTeam": "Projet académique en équipe terminé",
-    "ongoingAcademic": "Mini-projet académique en cours",
+    "ongoingAcademic": "Projet académique en cours",
     "client": "Projet client",
     "internship": "Stage"
   },
   "projects": {
     "lib": {
       "title": "Système d’information d’une bibliothèque nationale",
-      "summary": "Chez Spintechs, j’ai conçu des API REST Spring Boot et des modèles de domaine pour les lecteurs, le personnel et les visiteurs. J’ai développé les parcours d’inscription, des interfaces d’administration React et des fonctionnalités du portail lecteurs, dont la prise en charge de plusieurs langues et de l’écriture de droite à gauche."
+      "summary": "Pour faciliter la gestion de la bibliothèque et les services aux lecteurs, j’ai modélisé les rôles des utilisateurs dans Spring Boot, développé les parcours d’inscription et créé des interfaces React pour le personnel et les lecteurs."
     },
     "wind": {
       "title": "Maintenance prédictive d’éoliennes",
-      "summary": "En binôme, nous avons combiné la classification de défauts à partir de données SCADA et la prévision de production. J’ai conçu l’architecture logicielle, développé le tableau de bord et le simulateur, et travaillé sur l’analyse de séries temporelles, l’intégration MQTT et la configuration du Jetson Nano.",
-      "note": "L’évaluation doit être approfondie pour vérifier les risques de fuite de données et la capacité de généralisation.",
+      "summary": "En binôme, nous avons réalisé un prototype de maintenance prédictive qui exploitait des données historiques pour signaler des défauts possibles et prévoir la production électrique. J’ai conçu l’architecture et développé le simulateur et le tableau de bord utilisés lors de la démonstration.",
+      "note": "Des vérifications restent nécessaires pour confirmer que les données de test sont restées séparées du réglage des modèles et pour évaluer si les modèles se généralisent à d’autres éoliennes.",
       "link": "Dépôt du simulateur éolien"
     },
     "qube": {
       "title": "QubeLink — Prise connectée",
-      "summary": "Notre équipe a réalisé une prise connectée qui commandait une ampoule. J’ai travaillé sur le micrologiciel ESP8266, la configuration Wi-Fi, les voyants et la connexion de la prise dans l’application React Native.",
+      "summary": "Notre équipe a réalisé un prototype de prise connectée et a démontré l’allumage et l’extinction d’une ampoule. J’ai travaillé sur le micrologiciel de l’ESP8266, notamment sur la configuration Wi-Fi et le voyant de connexion MQTT, ainsi que sur la connexion de la prise dans l’application React Native.",
       "link": "Micrologiciel et documentation du projet"
     },
     "gait": {
       "title": "Estimation personnalisée des phases de la marche",
-      "summary": "À l’UPEC, j’étudie comment estimer les phases de la marche à partir de capteurs portés sur le corps et adapter ces méthodes aux différences entre les personnes."
+      "summary": "À l’UPEC, j’étudie comment les données de capteurs portés sur le corps peuvent aider à estimer les phases du cycle de marche et comment les méthodes d’IA pourraient s’adapter à différentes personnes."
     },
     "brace": {
       "title": "BracePy — Frontend de compilateur",
@@ -78,7 +79,7 @@
     "spintechs": {
       "title": "Ingénieure logicielle full-stack · Spintechs",
       "context": "Freelance, à distance",
-      "summary": "Je prends en charge des fonctionnalités de bout en bout pour l’administration et les services aux lecteurs, des règles métier aux interfaces réutilisables. Je documente les API, teste les parcours et participe à l’intégration."
+      "summary": "Chez Spintechs, je développe des fonctionnalités pour le système d’information d’une bibliothèque nationale. Je modélise les rôles des lecteurs, du personnel et des visiteurs, j’implémente les règles d’inscription avec Spring Boot et j’intègre les interfaces d’administration React aux API backend. Je documente les API, je teste les parcours et je participe à l’intégration."
     },
     "freelance": {
       "title": "Développeuse web freelance · Indépendante / Upwork",
@@ -123,8 +124,6 @@
     "timeSeries": "Analyse de séries temporelles",
     "evaluation": "Évaluation de modèles"
   },
-  "chartTitle": "Contributions",
-  "chartAlt": "Calendrier des contributions GitHub",
   "writing": "Retrouvez mes articles sur Medium.",
   "skipToContent": "Aller au contenu principal",
   "switchLanguage": {
@@ -139,7 +138,8 @@
     "back": "Retour aux projets",
     "contents": "Sur cette page",
     "technologies": "Technologies et dépôt",
-    "related": "Projets associés"
+    "related": "Projets associés",
+    "readProject": "Lire l’étude de cas : {{title}}"
   },
   "caseStudies": {
     "wind": {

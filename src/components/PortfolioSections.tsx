@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next'
 import { profile } from '../data/profile'
-import type { Theme } from '../types/portfolio'
 
 const STACK = {
   languages: ['Java', 'JavaScript', 'Python', 'C', 'PHP', 'SQL'],
@@ -16,7 +15,6 @@ export function Overview() {
     <aside>
       <section className="px card" id="overview">
         <h2>{t('nav.overview')}</h2>
-        <p>{t('about')}</p>
         <p>{t('place')}</p>
         <p>{t('langs')}</p>
       </section>
@@ -24,9 +22,8 @@ export function Overview() {
   )
 }
 
-export function Skills({ theme }: { theme: Theme }) {
+export function Skills() {
   const { t } = useTranslation()
-  const chartColor = theme === 'dark' ? '2DB5D0' : 'F05070'
   return (
     <section id="stack">
       <h2 className="title">{t('nav.stack')}</h2>
@@ -35,10 +32,6 @@ export function Skills({ theme }: { theme: Theme }) {
           <div key={g}><h3 className="skill-heading">{t(`skills.${g}`)}</h3><div className="slots">{items.map((x) => <span className="slot" key={x}>{t(`skills.${x}`, { defaultValue: x })}</span>)}</div></div>
         ))}
       </div>
-      <div className="px card chart" tabIndex={0} role="region" aria-label={t('chartTitle')}><img src={`https://ghchart.rshah.org/${chartColor}/${profile.username}`} alt={t('chartAlt')} onError={(event) => {
-        const chart = event.currentTarget.parentElement
-        if (chart) chart.style.display = 'none'
-      }} /></div>
     </section>
   )
 }
