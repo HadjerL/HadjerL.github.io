@@ -35,7 +35,6 @@ const projectCatalog = [
   },
   {
     id: 'shop', petal: '#FF8FA8',
-    url: 'https://annassib.com',
     technologies: [],
     status: 'client',
   },
